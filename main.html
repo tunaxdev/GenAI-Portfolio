@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Umut Tuna - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Floating animation */
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      /* Fade-in animation */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 1s ease-in-out;
+      }
+      .fade-in.show {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+
+      /* Neon glow */
+      .neon-text {
+        text-shadow: 0 0 10px #a855f7, 0 0 20px #9333ea, 0 0 40px #6b21a8;
+      }
+
+      /* Hologram card effect */
+      .holo-card {
+        position: relative;
+        overflow: hidden;
+        background: rgba(20, 20, 30, 0.9);
+        border: 1px solid rgba(168, 85, 247, 0.5);
+        transition: 0.3s;
+      }
+      .holo-card::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(
+          from 180deg,
+          transparent,
+          rgba(168, 85, 247, 0.6),
+          transparent
+        );
+        animation: spin 6s linear infinite;
+      }
+      .holo-card:hover {
+        box-shadow: 0 0 25px rgba(168, 85, 247, 0.7);
+        transform: scale(1.03);
+      }
+      @keyframes spin {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Futuristic button */
+      .neon-btn {
+        position: relative;
+        padding: 0.75rem 2rem;
+        border: 2px solid #a855f7;
+        border-radius: 9999px;
+        font-weight: bold;
+        color: white;
+        overflow: hidden;
+        transition: 0.3s;
+      }
+      .neon-btn::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          120deg,
+          transparent,
+          rgba(168, 85, 247, 0.8),
+          transparent
+        );
+        transform: rotate(25deg);
+        transition: 0.5s;
+      }
+      .neon-btn:hover::before {
+        left: 100%;
+      }
+      .neon-btn:hover {
+        box-shadow: 0 0 20px #a855f7;
+        border-color: #d946ef;
+      }
+
+      /* Subtle grid overlay */
+      body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(
+            rgba(255, 255, 255, 0.05) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 40px 40px;
+        pointer-events: none;
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gradient-to-br from-black via-purple-950 to-black text-white font-sans overflow-x-hidden"
+  >
+    <!-- HERO SECTION -->
+    <section
+      class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative"
+    >
+      <img
+        src="ai-image-hero.png"
+        alt="AI Profile Image"
+        class="w-64 h-64 object-cover rounded-full border-4 border-purple-500 shadow-lg mb-8"
+        style="animation: float 4s ease-in-out infinite"
+      />
+
+      <h1
+        class="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent neon-text"
+      >
+        Hello, I’m Umut Tuna
+      </h1>
+      <p class="text-xl md:text-2xl max-w-2xl mb-8 fade-in">
+        An IT student passionate about web development, artificial intelligence,
+        and building innovative digital experiences.
+      </p>
+      <a href="#about" id="discoverBtn" class="neon-btn text-lg px-8 py-3"
+        >Discover More</a
+      >
+
+      <!-- Neon orbs (bigger & stronger) -->
+      <div
+        class="absolute top-20 left-10 w-48 h-48 bg-purple-500 rounded-full opacity-25 blur-3xl animate-pulse"
+      ></div>
+      <div
+        class="absolute bottom-28 right-10 w-56 h-56 bg-pink-500 rounded-full opacity-25 blur-3xl animate-pulse"
+      ></div>
+    </section>
+
+    <!-- ABOUT ME -->
+    <section id="about" class="py-20 px-6 max-w-5xl mx-auto fade-in">
+      <h2 class="text-3xl font-bold mb-6 neon-text">About Me</h2>
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <img
+          src="ai-image-about.png"
+          alt="About Me AI Image"
+          class="w-full max-w-md mx-auto rounded-2xl shadow-xl holo-card"
+        />
+
+        <p class="text-lg leading-relaxed">
+          I’m currently a 3rd-year IT student, passionate about blending
+          creativity with technology. My journey in tech started with curiosity
+          about how websites and apps work. Today, I am learning to create
+          professional web applications and experimenting with AI-powered
+          projects. Outside of coding, I enjoy exploring new places, watching
+          documentaries, and working on personal growth.
+        </p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-20 px-6 bg-gray-900 fade-in">
+      <h2 class="text-3xl font-bold mb-10 text-center neon-text">Skills</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="p-6 holo-card rounded-2xl flex flex-col items-center">
+          <span class="text-purple-400 text-4xl mb-3">🌐</span>
+          <span>HTML</span>
+        </div>
+        <div class="p-6 holo-card rounded-2xl flex flex-col items-center">
+          <span class="text-purple-400 text-4xl mb-3">🎨</span>
+          <span>CSS / Tailwind</span>
+        </div>
+        <div class="p-6 holo-card rounded-2xl flex flex-col items-center">
+          <span class="text-purple-400 text-4xl mb-3">⚡</span>
+          <span>JavaScript</span>
+        </div>
+        <div class="p-6 holo-card rounded-2xl flex flex-col items-center">
+          <span class="text-purple-400 text-4xl mb-3">🗄️</span>
+          <span>SQL / Databases</span>
+        </div>
+        <div class="p-6 holo-card rounded-2xl flex flex-col items-center">
+          <span class="text-purple-400 text-4xl mb-3">🖥️</span>
+          <span>C / C++</span>
+        </div>
+        <div class="p-6 holo-card rounded-2xl flex flex-col items-center">
+          <span class="text-purple-400 text-4xl mb-3">🐍</span>
+          <span>Python</span>
+        </div>
+        <div class="p-6 holo-card rounded-2xl flex flex-col items-center">
+          <span class="text-purple-400 text-4xl mb-3">⚛️</span>
+          <span>React</span>
+        </div>
+        <div class="p-6 holo-card rounded-2xl flex flex-col items-center">
+          <span class="text-purple-400 text-4xl mb-3">🌐</span>
+          <span>Node.js</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-20 px-6 max-w-5xl mx-auto fade-in">
+      <h2 class="text-3xl font-bold mb-10 neon-text text-center">Projects</h2>
+      <div class="grid md:grid-cols-2 gap-10">
+        <div class="rounded-xl overflow-hidden holo-card">
+          <img
+            src="ss1.png"
+            alt="MYTHY WORD HUNT!!!"
+            class="w-61 h-56 object-cover mx-auto opacity-90"
+          />
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-3">MYTHY WORD HUNT!!!</h3>
+            <p>
+              A fun word-guessing game where players find missing letters.
+              Challenges your vocabulary and quick-thinking skills.
+            </p>
+          </div>
+        </div>
+        <div class="rounded-xl overflow-hidden holo-card">
+          <img
+            src="ss2.png"
+            alt="Derman"
+            class="w-full h-56 object-cover opacity-90"
+          />
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-3">Derman</h3>
+            <p>
+              An AI-supported dermatology app that analyzes skin conditions and
+              provides personalized recommendations and insights.
+            </p>
+          </div>
+        </div>
+        <div class="rounded-xl overflow-hidden holo-card md:col-span-2">
+          <img
+            src="ss3.png"
+            alt="Medicine & AI Drug Assistant"
+            class="w-150 h-56 object-cover mx-auto opacity-90"
+          />
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-3">
+              Medicine & AI Drug Assistant
+            </h3>
+            <p>
+              A comprehensive medicine assistant app with AI support. Helps
+              users track medication usage, provides dosage reminders, and
+              identifies potential drug interactions and side effects.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOBBIES & FUTURE GOALS -->
+    <section id="hobbies" class="py-20 px-6 max-w-6xl mx-auto fade-in">
+      <h2 class="text-3xl font-bold mb-10 neon-text text-center">
+        Hobbies & Future Goals
+      </h2>
+      <div class="grid md:grid-cols-2 gap-10">
+        <div class="rounded-xl overflow-hidden holo-card p-6">
+          <h3 class="text-2xl font-semibold mb-4">Hobbies</h3>
+          <ul class="list-disc list-inside space-y-3 text-lg">
+            <li>🌍 Traveling and discovering new cultures</li>
+            <li>🎮 Playing and designing video games</li>
+            <li>📚 Watching documentaries & learning from them</li>
+            <li>🏋️ Fitness and personal development</li>
+          </ul>
+        </div>
+        <div class="rounded-xl overflow-hidden holo-card p-6">
+          <h3 class="text-2xl font-semibold mb-4">Future Goals</h3>
+          <ul class="list-disc list-inside space-y-3 text-lg">
+            <li>🚀 Become a full-stack web developer</li>
+            <li>🤖 Specialize in Artificial Intelligence & Data Science</li>
+            <li>🌐 Build impactful tech projects that help people</li>
+            <li>🎓 Continue academic journey with international experiences</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-20 px-6 bg-gray-900 fade-in w-full">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 neon-text text-center">
+          Contact Me
+        </h2>
+
+        <!-- Flex container -->
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-10"
+        >
+          <!-- Left: Text -->
+          <div
+            class="md:w-1/2 text-lg leading-relaxed flex flex-col justify-center h-full text-center md:text-left"
+          >
+            <div>
+              <p>
+                I’m always open to new opportunities, collaborations, or simply
+                chatting about technology and ideas.
+              </p>
+              <p class="mt-4">
+                Feel free to reach out via email or connect with me on social
+                platforms.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: Contact button -->
+          <div class="md:w-1/2 flex justify-center">
+            <a
+              href="mailto:umuttuna03@gmail.com"
+              class="neon-btn inline-block px-10 py-4 text-lg font-bold rounded-full"
+            >
+              📧 Send Email
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-6 text-center bg-black text-gray-500 fade-in">
+      © 2025 Umut Tuna. All rights reserved.
+    </footer>
+
+    <!-- SCRIPT: Fade-in on scroll + Smooth Scroll -->
+    <script>
+      // Fade-in on scroll
+      const elements = document.querySelectorAll(".fade-in");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      elements.forEach((el) => observer.observe(el));
+
+      // Smooth Scroll for Discover More
+      document
+        .getElementById("discoverBtn")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const target = document.querySelector("#about");
+          const targetPosition =
+            target.getBoundingClientRect().top + window.scrollY;
+          const startPosition = window.scrollY;
+          const distance = targetPosition - startPosition;
+          const duration = 1000; // ms
+          let start = null;
+
+          function step(timestamp) {
+            if (!start) start = timestamp;
+            const progress = timestamp - start;
+
+            // easing function (easeInOutCubic)
+            const easeInOutCubic = (t) =>
+              t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+            const timeFraction = Math.min(progress / duration, 1);
+            const ease = easeInOutCubic(timeFraction);
+
+            window.scrollTo(0, startPosition + distance * ease);
+
+            if (progress < duration) {
+              requestAnimationFrame(step);
+            }
+          }
+
+          requestAnimationFrame(step);
+        });
+    </script>
+  </body>
+</html>
